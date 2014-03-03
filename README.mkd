@@ -1,0 +1,7 @@
+## 67-272: Chess Camp Phase 3 Starter ##
+
+This is starter code for the course project in 67-272: Application Design and Development.  This code has model code for the four models specified in phase 2 along with unit tests.  We will be adding Cucumber tests later to help students test their interface.
+
+To set this up, clone this repository, run the `bundle install` command to ensure you have all the needed gems and then create the database with `rake db:migrate`.  If you want to populate the system with fictitious, but somewhat realistic data (similar to the data given in the spreadsheets in phase 1), you can run the `rake db:populate` command.
+
+Instructions for what needs to be done in this phase of the project can be found in the phase 3 write-up found on the [67-272 course site](http://cmu-is-272.org/projects/3).
