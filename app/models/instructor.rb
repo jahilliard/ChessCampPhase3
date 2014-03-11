@@ -37,7 +37,7 @@ class Instructor < ActiveRecord::Base
   private
   def reformat_phone
     # shorter, more direct way than in PATS
-    self.phone = self.phone.to_s.gsub!(/[^0-9]/,"")
+    self.phone = self.phone.to_s.gsub(/[^0-9]/,"")
   end
   
 end
