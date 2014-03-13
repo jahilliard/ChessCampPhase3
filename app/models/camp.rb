@@ -36,7 +36,7 @@ class Camp < ActiveRecord::Base
 
   # private
   def curriculum_is_active_in_the_system
-    all_curric_ids = Curriculum.active.all.map(&:id)
+    all_curric_ids = Curriculum.active.to_a.map(&:id)
     unless all_curric_ids.include?(self.curriculum_id)
       errors.add(:curriculum, "is not an active curriculum in the system")
     end
