@@ -11,7 +11,7 @@ Feature: Manage curriculums
     When I go to the curriculums page
     Then I should see "Curriculums"
     And I should see "Name"
-    And I should see "Rating Range"
+    And I should see "Ratings"
     And I should see "Times Used"
     And I should see "Mastering Chess Tactics"
     And I should see "3"
@@ -49,7 +49,7 @@ Feature: Manage curriculums
     And I should see "Curriculum Details"
     And I should see "Endgame Principles"
     And I should see "This camp is designed for any student who has mastered basic mating patterns and understands opening principles and is looking to improve his/her ability use chess tactics in game situations."
-    And I should see "Rating Range"
+    And I should see "Ratings"
     And I should see "700 - 1500"
     And I should see "Active"
     And I should not see "Principles of Chess"
