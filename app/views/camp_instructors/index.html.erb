@@ -1,0 +1,31 @@
+<h1>Camp Instructors Given at A&M Chess Camp</h1><br>
+
+<table class="datagrid">
+  <thead class="datagrid">
+    <th>Camp</th>
+    <th>Camp Start Date</th>
+    <th>Camp End Date</th>
+		<th>Instructors</th> 
+    <th>&nbsp;</th>
+  </thead>
+  <% for camp_instructor in @camp_instructors %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to camp_instructor.camp.name, camp_path(camp_instructor.camp) %></td>
+      <td><%= link_to camp_instructor.camp.start_date.strftime("%m/%d/%y") %></td>
+      <td><%= link_to camp_instructor.camp.end_date.strftime("%m/%d/%y") %></td>
+      <td><%= link_to camp_instructor.instructor.name, instructor_path(camp_instructor.instructor) %></td>
+	  <td align="center">
+			<%= link_to(image_tag("icons/edit_dg.gif", border: 0), edit_camp_instructor_path(camp_instructor))  %>&nbsp;
+			<%= link_to(image_tag("icons/delete_dg.gif", border: 0), camp_instructor_path(camp_instructor), confirm: 'Are you sure you wish to delete this information?', method: :delete) %>
+	  </td>
+    </tr>
+  <% end %>
+</table>
+<p class="supertiny"></p>
+
+<!-- Add the pagination using will_paginate gem -->
+<span class="smtext">
+<%= will_paginate @camp_instructors, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+</span>
+
+<p><strong><%= link_to "Add A New Camp Instructor", new_camp_instructor_path %></strong></p>

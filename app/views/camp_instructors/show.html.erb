@@ -1,0 +1,16 @@
+<h2>Camp Instructor Information:</h2>
+
+<p>
+  <strong>Camp:</strong>
+  <%= link_to @camp_instructor.camp.name, camp_path(@camp_instructor.camp) %> 
+</p>
+<p>
+  <strong>Instructor:</strong>
+  <%= link_to @camp_instructor.instructor.name, instructor_path(@camp_instructor.instructor) %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_camp_instructor_path(@camp_instructor) %> |
+  <%= link_to "Destroy", @camp_instructor, confirm: 'Are you sure?', method: :delete %> |
+  <%= link_to "View All", camp_instructors_path %>
+</p>

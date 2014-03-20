@@ -56,6 +56,9 @@ GEM
       railties (>= 3.0.0)
     faker (1.2.0)
       i18n (~> 0.5)
+    foundation-rails (5.2.0.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     hike (1.2.3)
     hirb (0.7.1)
     i18n (0.6.9)
@@ -118,6 +121,9 @@ GEM
     shoulda-context (1.1.6)
     shoulda-matchers (2.5.0)
       activesupport (>= 3.0.0)
+    simple_form (3.0.1)
+      actionpack (>= 4.0.0, < 4.1)
+      activemodel (>= 4.0.0, < 4.1)
     simplecov (0.8.2)
       docile (~> 1.1.0)
       multi_json
@@ -169,6 +175,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   factory_girl_rails
   faker
+  foundation-rails
   hirb
   jbuilder (~> 1.2)
   jquery-rails
@@ -181,6 +188,7 @@ DEPENDENCIES
   sdoc
   shoulda
   shoulda-matchers
+  simple_form
   simplecov
   single_test
   sqlite3
