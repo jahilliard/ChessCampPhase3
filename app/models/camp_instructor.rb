@@ -18,14 +18,14 @@ class CampInstructor < ActiveRecord::Base
   end
 
   def instructor_is_active_in_system
-    all_instructors_ids = Instructor.active.all.map(&:id)
+    all_instructors_ids = Instructor.active.to_a.map(&:id)
     unless all_instructors_ids.include?(self.instructor_id)
       errors.add(:instructor, "is not an active instructor in the system")
     end
   end
 
   def camp_is_active_in_system
-    all_camps_ids = Camp.active.all.map(&:id)
+    all_camps_ids = Camp.active.to_a.map(&:id)
     unless all_camps_ids.include?(self.camp_id)
       errors.add(:camp, "is not an active camp in the system")
     end   

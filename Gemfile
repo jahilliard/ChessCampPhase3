@@ -66,5 +66,8 @@ group :test do
   gem 'simplecov'
   gem 'turn'
   gem 'single_test'
-  # gem 'tconsole'  # issues with matchers and minitest, so skip for now
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'capybara'
 end
