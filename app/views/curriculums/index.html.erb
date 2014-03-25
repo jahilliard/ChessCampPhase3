@@ -1,0 +1,28 @@
+<h1>Curriculums Given at A&M Chess Camp</h1><br>
+
+<table class="datagrid">
+  <thead class="datagrid">
+    <th>Curriculum</th>
+    <th>Minimum Rating</th>
+    <th>Maximum Rating</th>
+    <th>&nbsp;</th>
+  </thead>
+  <% for curriculum in @curriculums %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to curriculum.name %></td>
+      <td><%= link_to curriculum.min_rating %></td>
+      <td><%= link_to curriculum.max_rating %></td>
+	  <td align="center">
+			<%= link_to(image_tag("icons/edit_dg.gif", border: 0), edit_curriculum_path(curriculum))  %>&nbsp;
+	  </td>
+    </tr>
+  <% end %>
+</table>
+<p class="supertiny"></p>
+
+<!-- Add the pagination using will_paginate gem -->
+<span class="smtext">
+<%= will_paginate @curriculums, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+</span>
+
+<p><strong><%= link_to "Add A New Curriculum", new_curriculum_path %></strong></p>

@@ -1,0 +1,28 @@
+<h1>Instructors at A&M Chess Camp</h1><br>
+
+<table class="datagrid">
+  <thead class="datagrid">
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th> 
+    <th>&nbsp;</th>
+  </thead>
+  <% for instructor in @instructors %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to instructor.name, instructor_path(instructor) %></td>
+      <td><%= link_to instructor.email %></td>
+      <td><%= link_to instructor.phone %></td>
+	  <td align="center">
+			<%= link_to(image_tag("icons/edit_dg.gif", border: 0), edit_camp_instructor_path(camp_instructor))  %>&nbsp;
+	  </td>
+    </tr>
+  <% end %>
+</table>
+<p class="supertiny"></p>
+
+<!-- Add the pagination using will_paginate gem -->
+<span class="smtext">
+<%= will_paginate @instructors, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+</span>
+
+<p><strong><%= link_to "Add A New Instructor", new_instructor_path %></strong></p>

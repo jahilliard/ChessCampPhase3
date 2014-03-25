@@ -9,7 +9,7 @@ class CampInstructorsController < ApplicationController
 	end
 
 	def show
-
+		# do this
 	end
 
 	def new

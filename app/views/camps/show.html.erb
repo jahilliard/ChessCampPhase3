@@ -1,0 +1,42 @@
+<h2><%=@camp.name.titlecase%>Camp Information:</h2>
+
+<p>
+  <strong>Camp:</strong>
+  <%= link_to @camp.name, curriculum_path(@camp.curriculum) %> 
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= link_to @camp.cost %> 
+</p>
+
+<p>
+  <strong>Start Date:</strong>
+  <%= link_to @camp.start_date %> 
+</p>
+
+<p>
+  <strong>End Date:</strong>
+  <%= link_to @camp.end_date %> 
+</p>
+
+<p>
+  <strong>Max Students:</strong>
+  <%= link_to @camp.max_students %> 
+</p>
+
+<p>
+  <strong>Time Slot:</strong>
+  <%= link_to @camp.time_slot %> 
+</p>
+
+<p>
+  <strong>Instructors:</strong>
+  <%= link_to @camp.instructor.name, instructor_path(@camp_instructor.instructor) %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_camp_path(@camp) %> |
+  <%= link_to "Destroy", @camp, confirm: 'Are you sure?', method: :delete %> |
+  <%= link_to "View All", camps_path %>
+</p>

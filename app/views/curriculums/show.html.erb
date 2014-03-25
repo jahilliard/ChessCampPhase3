@@ -1,0 +1,27 @@
+<h2>Curriculum Information:</h2>
+
+<p>
+  <strong>Curriculum Name: </strong>
+  <%= link_to @curriculum.name.titlecase %> 
+</p>
+
+<p>
+  <strong>Minimum Rating: </strong>
+  <%= link_to @curriculum.max_rating %> 
+</p>
+
+<p>
+  <strong>Maximum Rating: </strong>
+  <%= link_to @curriculum.min_rating %> 
+</p>
+
+<p>
+  <strong>Description: </strong>
+  <%= link_to @curriculum.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_curriculum_path(@curriculum) %> |
+  <%= link_to "Destroy", @curriculum, confirm: 'Are you sure?', method: :delete %> |
+  <%= link_to "View All", curriculums_path %>
+</p>

@@ -1,0 +1,45 @@
+<%= form_for(@camp) do |f| %>
+  <% if @camp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@camp.errors.count, "error") %> Prohibited this Camp from being saved:</h2>
+
+      <ul>
+      <% @camp.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :curriculum_id %><br />
+    <%= f.select :curriculum_id, Curriculum.all, :id, :name, prompt: "Select Curriculum Name" %>
+  </div>
+  <div class="field">
+    <%= f.label :cost %><br />
+    <%= f.number_field :cost%>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br />
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :time_slot %><br />
+    <%= f.text_field :time_slot%>
+  </div>
+  <div class="field">
+    <%= f.label :max_students %><br />
+    <%= f.text_field :max_students%>
+  </div>
+  <div class="field">
+    <%= f.label :active%><br />
+    <%= f.check_box :active%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
