@@ -2,23 +2,41 @@
 
 <p>
   <strong>Instructor Name: </strong>
-  <%= link_to @instructor.poper_name %> 
+  <%= link_to @instructor.proper_name %> 
 </p>
 <p>
   <strong>Email: </strong>
-  <%= link_to @instructor.email %>
+  <%= @instructor.email %>
 </p>
 <p>
   <strong>Phone: </strong>
-  <%= link_to @instructor.phone %>
+  <%= "#{@instructor.phone[0..2]}" %>-<%= "#{@instructor.phone[3..5]}" %>-<%= "#{@instructor.phone[6..9]}" %>
 </p>
 <p>
-  <strong>Bio: </strong>
-  <%= link_to @instructor.bio %>
+  <strong>Upcoming Camps: </strong>
+  <% unless @instructor.camps.empty? %>
+          <% for camp in @instructor.camps %> 
+            <%= link_to camp.name, camp_path(camp) %>
+            <% unless @instructor.camps.last.eql?(camp) %> | <% end %>
+          <% end %>
+      <% end %>
+      <% if @instructor.camps.empty? %> There are no camps for this instructor <%end%>
+</p>
+<p>
+  <strong>Is the camp active: </strong>
+      <% if @instructor.active==true %>
+      <td>Active</td>
+      <% else %>
+      <td>Inactive</td>
+      <% end %>
+</p>
+<p>
+  <strong>Instructor Details: </strong>
+  <%= @instructor.bio %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_camp_instructor_path(@camp_instructor) %> |
-  <%= link_to "Destroy", @camp_instructor, confirm: 'Are you sure?', method: :delete %> |
-  <%= link_to "View All", camp_instructors_path %>
+  <%= link_to "Edit", edit_instructor_path(@instructor) %> |
+  <%= link_to "Destroy", @instructor, confirm: 'Are you sure?', method: :delete %> |
+  <%= link_to "View All", instructors_path %>
 </p>

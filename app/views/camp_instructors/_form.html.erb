@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :camp_id %><br />
-    <%= f.collection_select :camp_id, get_camp_options, prompt: "Select Camp" %>
+    <%= f.number_field :camp_id %>
   </div>
   <div class="field">
     <%= f.label :instructor_id %><br />
-    <%= f.select :instructor_id, get_instructor_options, prompt: "Select Instructor" %>
+    <%= f.number_field :instructor_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -11,7 +11,7 @@ ChessCampP2::Application.routes.draw do
   resources :camps
   resources :camp_instructors
   resources :instructors 
-  resources :curriculum
+  resources :curriculums
   
   # You can have the root of your site routed with 'root'
   root 'home#index'

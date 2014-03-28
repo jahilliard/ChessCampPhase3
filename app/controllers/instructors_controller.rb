@@ -8,7 +8,7 @@ class InstructorsController < ApplicationController
 	end
 
 	def show
-		# do this 
+		
 	end
 
 	def new
@@ -22,7 +22,7 @@ class InstructorsController < ApplicationController
 		@instructor = Instructor.new(instructor_params)
 		if @instructor.save
 			# if saved to database
-			flash[:notice] = "Successfully created #{@instructor.proper_name}."
+			flash[:notice] = "#{@instructor.proper_name} was added to the system."
 			redirect_to @instructor # go to show instructor page
 		else
 			# return to the 'new' form
@@ -32,7 +32,7 @@ class InstructorsController < ApplicationController
 
 	def update
 		if @instructor.update_attributes(instructor_params)
-			flash[:notice] = "Successfully updated #{@instructor.proper_name}."
+			flash[:notice] = "#{@instructor.proper_name} was revised in the system."
 			redirect_to @instructor
 		else
 			render action: 'edit'

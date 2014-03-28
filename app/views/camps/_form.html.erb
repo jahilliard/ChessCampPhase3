@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :curriculum_id %><br />
-    <%= f.select :curriculum_id, Curriculum.all, :id, :name, prompt: "Select Curriculum Name" %>
+    <%= f.collection_select :curriculum_id, Curriculum.all, :id, :name, prompt: "Select Curriculum Name" %>
   </div>
   <div class="field">
     <%= f.label :cost %><br />

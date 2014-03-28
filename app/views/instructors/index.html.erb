@@ -5,15 +5,26 @@
     <th>Name</th>
     <th>Email</th>
     <th>Phone</th> 
+    <th>Camps</th> 
     <th>&nbsp;</th>
   </thead>
   <% for instructor in @instructors %>
     <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
       <td><%= link_to instructor.name, instructor_path(instructor) %></td>
-      <td><%= link_to instructor.email %></td>
-      <td><%= link_to instructor.phone %></td>
+      <td><%= instructor.email %></td>
+      <td>
+          <%= "#{instructor.phone[0..2]}" %>-<%= "#{instructor.phone[3..5]}" %>-<%= "#{instructor.phone[6..9]}" %>
+      </td>
+      <% unless instructor.camps.empty? %>
+        <td>
+          <% for camp in instructor.camps %> 
+            <%= link_to camp.name, camp_path(camp) %><br>
+          <% end %>
+        </td>
+      <% end %>
+      <% if instructor.camps.empty? %> <td> There are no camps for this instructor </td> <%end%>
 	  <td align="center">
-			<%= link_to(image_tag("icons/edit_dg.gif", border: 0), edit_camp_instructor_path(camp_instructor))  %>&nbsp;
+			<%= link_to(image_tag("icons/edit_dg.gif", border: 0), edit_instructor_path(instructor))  %>&nbsp;
 	  </td>
     </tr>
   <% end %>

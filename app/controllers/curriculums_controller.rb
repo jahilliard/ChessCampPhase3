@@ -6,11 +6,10 @@ class CurriculumsController < ApplicationController
 	def index
 		# get data on all curriculums and paginate the output to 10 per page
 		@curriculums = Curriculum.active.alphabetical.paginate(page: params[:page]).per_page(10)
-		respond_with @curriculums
 	end
 
 	def show
-		# do this
+		@camps = @curriculum.camps
 	end
 
 	def new
@@ -23,7 +22,7 @@ class CurriculumsController < ApplicationController
 	def create
 		@curriculum = Curriculum.new(curriculum_params)
 		if @curriculum.save
-			redirect_to @curriculum, notice: "Successfully added #{@curriculum.name} as a curriculum."
+			redirect_to @curriculum, notice: "#{@curriculum.name} was added to the system."
 		else
 			render action: 'new'
 		end
@@ -31,7 +30,7 @@ class CurriculumsController < ApplicationController
 
 	def update
 	  if @curriculum.update_attributes(curriculum_params)
-	  	redirect_to @curriculum, notice: "Updated #{@curriculum.name}'s information"
+	  	redirect_to @curriculum, notice: "#{@curriculum.name} was revised in the system."
 	  else
 	  	render action: 'edit'
 	  end

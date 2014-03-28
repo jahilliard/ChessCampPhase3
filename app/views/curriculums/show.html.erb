@@ -1,23 +1,41 @@
-<h2>Curriculum Information:</h2>
+<h2>Curriculum Details:</h2>
 
 <p>
   <strong>Curriculum Name: </strong>
-  <%= link_to @curriculum.name.titlecase %> 
+  <%= @curriculum.name.titlecase %> 
 </p>
 
 <p>
-  <strong>Minimum Rating: </strong>
-  <%= link_to @curriculum.max_rating %> 
+  <strong>Ratings: </strong>
+  	<% if @curriculum.min_rating==0 %>
+  	<td>Unrated - <%= @curriculum.max_rating%></td>
+  	<% else %>
+  	<td><%= @curriculum.min_rating %> - <%= @curriculum.max_rating%></td>
+  	<% end %>
 </p>
 
 <p>
-  <strong>Maximum Rating: </strong>
-  <%= link_to @curriculum.min_rating %> 
+  <strong>All about <%= @curriculum.name%>: </strong>
+  <%= @curriculum.description %>
 </p>
 
+<% unless @camps.empty? %>
+	<p>
+	  <strong>When is this curriculum offered: </strong>
+	  <% for camp in @camps %>
+		<%= link_to camp.start_date.strftime("%B %e, %Y"), camp_path(camp) %>
+		<% unless @camps.last.eql?(camp) %> | <% end %>
+	  <% end %>
+	</p>
+<% end %>
+
 <p>
-  <strong>Description: </strong>
-  <%= link_to @curriculum.description %>
+	<strong>Is the camp active: </strong>
+      <% if @curriculum.active==true %>
+      <td>Active</td>
+      <% else %>
+      <td>Inactive</td>
+      <% end %>
 </p>
 
 <p>
