@@ -1,33 +1,51 @@
-<h2><%=@camp.name.titlecase%>Camp Information:</h2>
+<h2><%=@camp.name%> Camp Details:</h2>
 
 <p>
-  <strong>Camp:</strong>
+  <strong>Camp: </strong>
   <%= link_to @camp.name, curriculum_path(@camp.curriculum) %> 
 </p>
 
 <p>
-  <strong>Cost:</strong>
-  <%= link_to @camp.cost %> 
+  <strong>Cost: </strong>
+  $<%= @camp.cost %>.00
 </p>
 
 <p>
-  <strong>Start Date:</strong>
-  <%= link_to @camp.start_date %> 
+  <strong>Date Period: </strong>
+  <%= @camp.start_date.strftime("%m/%d/%y") %> - <%= @camp.end_date.strftime("%m/%d/%y") %> 
 </p>
 
 <p>
-  <strong>End Date:</strong>
-  <%= link_to @camp.end_date %> 
+  <strong>Max Students: </strong>
+  <%= @camp.max_students %> 
 </p>
 
 <p>
-  <strong>Max Students:</strong>
-  <%= link_to @camp.max_students %> 
+  <strong>Time Slot: </strong>
+  <% if @camp.time_slot=="am" %>
+    Morning
+  <% else %>
+    Afternoon
+  <% end %>
 </p>
 
+<% unless @camp.instructors.empty? %>
+  <p>
+    <strong>Camp Instructors: </strong>
+    <% for instructor in @camp.instructors %>
+      <%= link_to instructor.name, instructor_path(instructor) %>
+    <% unless @camp.instructors.last.eql?(instructor) %> | <% end %>
+    <% end %>
+  </p>
+<% end %>
+
 <p>
-  <strong>Time Slot:</strong>
-  <%= link_to @camp.time_slot %> 
+  <strong>Is the camp active: </strong>
+      <% if @camp.active==true %>
+        Active
+      <% else %>
+        Inactive
+      <% end %>
 </p>
 
 <p>

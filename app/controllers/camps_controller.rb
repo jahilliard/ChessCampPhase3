@@ -4,7 +4,7 @@ class CampsController < ApplicationController
 
 	def index
 	  # get all camps in reverse chronological order, 10 per page
-	  @camps = Camp.chronological.paginate(page: params[:page]).per_page(10)
+	  @camps = Camp.chronological.upcoming.paginate(page: params[:page]).per_page(10)
 	end
 	
 	def show
@@ -18,7 +18,7 @@ class CampsController < ApplicationController
 	def create
 		@camp = Camp.new(camp_params)
 		if @camp.save
-			flash[:notice] = "Successfully added camp for #{@camp.name}."
+			flash[:notice] = "#{@camp.name} was added to the system."
 			redirect_to @camp
 		else
 			render action: 'new'
@@ -30,7 +30,7 @@ class CampsController < ApplicationController
 	
 	def update
 		if @camp.update_attributes(camp_params)
-			flash[:notice] = "Successfully updated camp by #{@camp.name}."
+			flash[:notice] = "#{@camp.name} was revised in the system."
 			redirect_to @camp
 		else
 			render action: 'edit'
@@ -39,7 +39,7 @@ class CampsController < ApplicationController
 	
 	def destroy
 		@camp.destroy
-		flash[:notice] = "Successfully removed the camp of #{@camp.name}"
+		flash[:notice] = "#{@camp.name} was removed from the system"
 		redirect_to camps_url
 	end
 

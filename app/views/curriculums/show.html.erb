@@ -8,9 +8,9 @@
 <p>
   <strong>Ratings: </strong>
   	<% if @curriculum.min_rating==0 %>
-  	<td>Unrated - <%= @curriculum.max_rating%></td>
+  	Unrated - <%= @curriculum.max_rating%>
   	<% else %>
-  	<td><%= @curriculum.min_rating %> - <%= @curriculum.max_rating%></td>
+  	<%= @curriculum.min_rating %> - <%= @curriculum.max_rating%>
   	<% end %>
 </p>
 
@@ -32,9 +32,9 @@
 <p>
 	<strong>Is the camp active: </strong>
       <% if @curriculum.active==true %>
-      <td>Active</td>
+        Active
       <% else %>
-      <td>Inactive</td>
+        Inactive
       <% end %>
 </p>
 
