@@ -48,7 +48,7 @@ class CampInstructorsController < ApplicationController
 	private
 		# Use callbacks to share common setup or constraints between actions.
 		def set_camp_instructor
-			@camp_instructor = camp_instructor.find(params[:id])
+			@camp_instructor = CampInstructor.find(params[:id])
 		end
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def camp_instructor_params

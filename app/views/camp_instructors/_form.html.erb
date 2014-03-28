@@ -1,4 +1,4 @@
-<%= form_for(@camp_instructor) do |f| %>
+<%= simple_form_for @camp_instructor, html: { class: 'form-horizontal' } do |f| %>
   <% if @camp_instructor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@camp_instructor.errors.count, "error") %> prohibited this Camp Instructor from being saved:</h2>
@@ -12,12 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :camp_id %><br />
-    <%= f.number_field :camp_id %>
+    <%= f.input :camp_id, label: "Camp: ", collection: Camp.active.alphabetical, as: :radio_buttons %>
   </div>
   <div class="field">
-    <%= f.label :instructor_id %><br />
-    <%= f.number_field :instructor_id %>
+    <%= f.input :instructor_id, label: "Instructor: ", collection: Instructor.active.alphabetical, as: :radio_buttons%>
   </div>
   <div class="actions">
     <%= f.submit %>
