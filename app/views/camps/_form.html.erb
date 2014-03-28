@@ -1,4 +1,4 @@
-<%= form_for(@camp) do |f| %>
+<%= simple_form_for @camp, html: { class: 'form-horizontal' } do |f| %>
   <% if @camp.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@camp.errors.count, "error") %> Prohibited this Camp from being saved:</h2>
@@ -12,35 +12,28 @@
   <% end %>
  <fieldset>
   <div class="field">
-    <%= f.label :curriculum_id %><br />
-    <%= f.collection_select :curriculum_id, Curriculum.all, :id, :name, prompt: "Select Curriculum Name" %>
+    <%= f.input :curriculum_id, collection: Curriculum.active.alphabetical, prompt: "Select Curriculum Name" %>
   </div>
   <div class="field">
-    <%= f.label :cost %><br />
-    <%= f.number_field :cost%>
+    <%= f.input :cost%>
   </div>
   <div class="field">
-    <%= f.label :start_date %><br />
-    <%= f.date_select :start_date %>
+    <%= f.input :start_date, as: :date, order: [:month, :day, :year], include_blank: true %>
   </div>
   <div class="field">
-    <%= f.label :end_date %><br />
-    <%= f.date_select :end_date %>
+    <%= f.input :end_date, as: :date, order: [:month, :day, :year], include_blank: true %>
   </div>
   <div class="field">
-    <%= f.label :time_slot %><br />
-    <%= f.select :time_slot, options_for_select([["Morning", "am"],["Afternoon", "pm"]])%>
+    <%= f.input :time_slot, :collection => [["Morning", "am"],["Afternoon", "pm"]] %>
   </div>
   <div class="field">
-    <%= f.label :max_students %><br />
-    <%= f.text_field :max_students%>
+    <%= f.input :max_students%>
   </div>
   <div class="field">
-    <%= f.label :active%><br />
-    <%= f.check_box :active%>
+    <%= f.input :active, as: :radio_buttons%>
   </div>
   <div class="field">
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), camps_path %>
+    <%= f.input :instructor_ids, label: "Instructor(s): ", collection: Instructor.active.alphabetical, as: :check_boxes %>
   </div>
   <div class="actions">
     <%= f.submit %>
