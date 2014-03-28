@@ -13,3 +13,14 @@
 
  *= require_tree .
  */
+
+ .background{
+ 	background-image: url(background.jpg);
+ 	background-repeat:no-repeat;
+	background-size:contain;
+	background-position:center;
+ }
+
+#main_content{
+	background-color: whiel
+}

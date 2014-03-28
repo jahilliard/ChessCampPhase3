@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+ <fieldset>
   <div class="field">
     <%= f.label :curriculum_id %><br />
     <%= f.collection_select :curriculum_id, Curriculum.all, :id, :name, prompt: "Select Curriculum Name" %>
@@ -39,8 +39,11 @@
     <%= f.label :active%><br />
     <%= f.check_box :active%>
   </div>
-
+  <div class="field">
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), camps_path %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+ </fieldset>
 <% end %>

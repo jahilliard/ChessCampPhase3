@@ -1,0 +1,8 @@
+<p>
+  <b><%= pluralize(@camp.instructors.size, 'Instructor') %></b><br />
+  <ul>
+    <% for instructor in @camp.instructors %>
+      <li><%= link_to((instructor.name), instructor_path(instructor)) %></li>
+    <% end  %>
+  </ul>
+</p>

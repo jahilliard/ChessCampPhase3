@@ -1,0 +1,7 @@
+<p>
+	<% for instructor in Instructor.active.alphabetical  %>
+	   <%= check_box_tag "camp[instructor_ids][]", instructor.id, @camp.instructors.include?(instructor) %>
+		 <%= instructor.name %>
+	   <br />
+	<% end  %>
+</p>
