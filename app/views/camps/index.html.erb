@@ -23,7 +23,7 @@
         <% end %>
       </td>
 	  <td align="center">
-			<%= link_to (image_tag("icons/edit_dg.gif", border: 0)), edit_camp_path(camp)  %>&nbsp;
+			<%= link_to(raw("<button class='button'>Edit</button>")), edit_camp_path(camp)  %>&nbsp;
 	  </td>
     </tr>
   <% end %>

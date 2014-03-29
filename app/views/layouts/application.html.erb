@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class = "small-4 small-centered columns"><%= link_to(image_tag("AMChess.jpg", border: 0), home_path)%></div>
-	<div>
+	<div class = "background">
 		<%= render 'partials/navigation' %>
 			<div id = "main_content" class = "small-9 small-centered large-centered columns">
 				<% flash.each do |name, msg| %>
@@ -20,7 +20,7 @@
 				<% end %>
 				<%=yield%>
 		  	</div>
-		<%= render 'partials/footer' %>
 	</div>
+	<%= render 'partials/footer' %>
 </body>
 </html>

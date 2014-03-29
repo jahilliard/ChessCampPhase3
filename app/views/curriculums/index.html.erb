@@ -17,7 +17,7 @@
       <% end %>
       <td><%= Camp.for_curriculum(curriculum).size%></td>
 	  <td align="center">
-			<%= link_to(image_tag("icons/edit.gif", border: 0), edit_curriculum_path(curriculum))  %>&nbsp;
+			<%= link_to(raw('<button class="button">Edit</button>'), edit_curriculum_path(curriculum))  %>&nbsp;
 	  </td>
     </tr>
   <% end %>

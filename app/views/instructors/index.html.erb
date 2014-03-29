@@ -24,7 +24,7 @@
       <% end %>
       <% if instructor.camps.empty? %> <td> There are no camps for this instructor </td> <%end%>
 	  <td align="center">
-			<%= link_to(image_tag("icons/edit_dg.gif", border: 0), edit_instructor_path(instructor))  %>&nbsp;
+			<%= link_to(raw('<button class="button">Edit</button>'), edit_instructor_path(instructor))  %>&nbsp;
 	  </td>
     </tr>
   <% end %>
