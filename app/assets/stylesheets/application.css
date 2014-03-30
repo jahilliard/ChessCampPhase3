@@ -27,11 +27,14 @@
 	border-radius: 7px;
 }
 
-
 body {
-   margin:0;
-   padding:0;
-   height:100%;
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+#test{
+	padding-top: 10px;
 }
 
 #main_content{
@@ -39,8 +42,19 @@ body {
 	box-shadow: 0 0 8px #888888;
 	/*moz-box-shadow: 0 0 8px #888888;
 	webkit-box-shadow: 0 0 8px #888888;*/
+	padding-bottom: 15px;
 }
 
 #footer {
-	background: white;
+	position: relative;
+	width: 100%;
+	padding: 5px, 5px, 5px, 5px;
+	background-color: white;
+	/*margin-bottom: 0px, 0px, 0px, 0px;*/
+}
+
+@media (max-width: 640px) {
+	#footer{
+		background-color: green;
+	}
 }
