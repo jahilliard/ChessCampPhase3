@@ -17,10 +17,10 @@ class CampsController < ApplicationController
 	
 	def create
 		@camp = Camp.new(camp_params)
-		@camp.instructor_ids.each do |a|
-			@camp_ins = CampInstructor.new(@camp.id, a)
-			@camp_ins.save
-		end
+		# @camp.instructor_ids.each do |a|
+		# 	@camp_ins = CampInstructor.new(@camp.id, a)
+		# 	@camp_ins.save
+		# end
 		if @camp.save
 			flash[:notice] = "#{@camp.name} was added to the system."
 			redirect_to @camp
